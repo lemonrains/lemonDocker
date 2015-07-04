@@ -14,7 +14,8 @@ RUN  \
            wget http://apache.fayea.com/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz \
            && tar xvf apache-tomcat-7.0.62.tar.gz \
            && mv  apache-tomcat-7.0.62 tomcat \
-           && mv  tomcat /usr/local/tomcat
+           && mv  tomcat /usr/local/tomcat \
+           && rm  apache-tomcat-7.0.62.tar.gz
 
 # 安装maven
 RUN  \
@@ -22,6 +23,7 @@ RUN  \
            && tar xvf apache-maven-3.2.2-bin.tar.gz \
            && mv apache-maven-3.2.2 maven3 \
            && mv maven3 /usr/local/ \
+           && rm apache-maven-3.2.2-bin.tar.gz \
            && export M2_HOME=/usr/local/maven3 \
            && export M2=$M2_HOME/bin \
            && export PATH=$M2:$PATH
@@ -31,4 +33,3 @@ Run \
            apt-get clean \
         && rm -rf /var/cache/oracle-jdk7-installer \
         && rm -f  /var/lib/apt/lists/*_dists_*  \
-        && rm -rf /root/download

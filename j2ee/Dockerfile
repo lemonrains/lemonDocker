@@ -33,3 +33,6 @@ Run \
            apt-get clean \
         && rm -rf /var/cache/oracle-jdk7-installer \
         && rm -f  /var/lib/apt/lists/*_dists_*  \
+
+# 开放端口
+EXPOSE 8080
